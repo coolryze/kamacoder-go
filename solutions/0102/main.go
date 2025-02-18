@@ -16,14 +16,12 @@ func main() {
 		}
 	}
 
-	count := 0
 	directions := [][]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
 
 	var bfs func(int, int)
 	bfs = func(i, j int) {
 		queue := [][]int{}
 		if grid[i][j] == 1 {
-			count++
 			grid[i][j] = 2
 			queue = append(queue, []int{i, j})
 		}
@@ -39,7 +37,6 @@ func main() {
 					continue
 				}
 				if grid[nextI][nextJ] == 1 {
-					count++
 					grid[nextI][nextJ] = 2
 					queue = append(queue, []int{nextI, nextJ})
 				}
@@ -88,7 +85,6 @@ func main2() {
 		}
 	}
 
-	count := 0
 	directions := [][]int{{0, 1}, {1, 0}, {0, -1}, {-1, 0}}
 
 	var dfs func(int, int)
@@ -96,7 +92,6 @@ func main2() {
 		if i < 0 || i >= n || j < 0 || j >= m || grid[i][j] == 0 || grid[i][j] == 2 {
 			return
 		}
-		count++
 		grid[i][j] = 2
 		for _, direction := range directions {
 			nextI := i + direction[0]
@@ -114,7 +109,6 @@ func main2() {
 		dfs(n-1, j)
 	}
 
-	count = 0
 	for i := 0; i < n; i++ {
 		for j := 0; j < m; j++ {
 			if grid[i][j] == 1 {
