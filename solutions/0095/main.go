@@ -45,6 +45,7 @@ func main() {
 					for len(queue) > 0 {
 						queue = []int{}
 					}
+					break
 				}
 			}
 		}
